@@ -1,6 +1,7 @@
 import {
   AppBar,
   Box, Button, Dialog, IconButton,
+  Slide,
   Toolbar,
   Typography,
   useMediaQuery,
@@ -11,6 +12,7 @@ import React, { useState } from 'react';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import { SectionIdEnum } from 'types';
 import { Close } from '@mui/icons-material';
+import { TransitionProps } from '@mui/material/transitions';
 
 const navigationItems = [
   {
@@ -30,6 +32,15 @@ const navigationItems = [
     to: SectionIdEnum.contact,
   },
 ];
+
+const Transition = React.forwardRef((
+  props: TransitionProps & {
+    children: React.ReactElement<any, any>;
+  },
+  ref: React.Ref<unknown>,
+) => {
+  return <Slide direction="left" ref={ref} {...props} />;
+});
 
 export const Navigation: React.FC = () => {
   const [ openMenu, setOpenMenu ] = useState(false);
@@ -55,7 +66,7 @@ export const Navigation: React.FC = () => {
       <IconButton color="inherit" sx={{ display: { xs: 'block', md: 'none' } }} onClick={onOpenNavHandler}>
         <MenuIcon />
       </IconButton>
-      <Dialog open={openMenu} fullScreen fullWidth>
+      <Dialog open={openMenu} fullScreen fullWidth TransitionComponent={Transition}>
         <AppBar position="static" sx={{ background: '#fe8301', color: 'white' }}>
           <Toolbar>
             <Typography variant="h5" sx={{ flexGrow: 1 }}>
