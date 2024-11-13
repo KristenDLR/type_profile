@@ -1,48 +1,60 @@
 import {
   AppBar,
   Box, Button, Dialog, IconButton,
+  Slide,
   Toolbar,
   Typography,
-  useMediaQuery,
-  useTheme,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import React, { useState } from 'react';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import { SectionIdEnum } from 'types';
 import { Close } from '@mui/icons-material';
+import { TransitionProps } from '@mui/material/transitions';
+
+export type NavigationProps = {
+  isScreenSmall: boolean;
+};
 
 const navigationItems = [
   {
     text: 'About',
-    to: SectionIdEnum.about,
+    navigateLocation: SectionIdEnum.about,
   },
   {
     text: 'Skills',
-    to: SectionIdEnum.skills,
+    navigateLocation: SectionIdEnum.skills,
   },
   {
     text: 'Projects',
-    to: SectionIdEnum.projects,
+    navigateLocation: SectionIdEnum.projects,
   },
   {
     text: 'Contact',
-    to: SectionIdEnum.contact,
+    navigateLocation: SectionIdEnum.contact,
   },
 ];
 
-export const Navigation: React.FC = () => {
+const Transition = React.forwardRef((
+  props: TransitionProps & {
+    children: React.ReactElement<any, any>;
+  },
+  ref: React.Ref<unknown>,
+) => {
+  return <Slide direction="left" ref={ref} {...props} />;
+});
+
+export const Navigation: React.FC<NavigationProps> = ({ isScreenSmall }) => {
   const [ openMenu, setOpenMenu ] = useState(false);
-  const theme = useTheme();
-  const isScreenSmall = useMediaQuery(theme.breakpoints.down('sm'));
+ 
 
   const onOpenNavHandler = () => setOpenMenu(true);
   const onCloseNavHandler = () => setOpenMenu(false);
 
-  const mappedNavItems = navigationItems.map(({ to, text }) => {
+  const mappedNavItems = navigationItems.map(({ navigateLocation, text }) => {
     return (
-      <AnchorLink key={to}>
-        <Button color="inherit" size="large" fullWidth={isScreenSmall}>
+      <AnchorLink key={navigateLocation} href={`#${navigateLocation}`} offset={isScreenSmall ? '56px' : '64px'} className='allUnset'>
+        <Button color="inherit" size="large" fullWidth={isScreenSmall} onClick={onCloseNavHandler}>
           {text}
         </Button>
       </AnchorLink>
@@ -51,11 +63,15 @@ export const Navigation: React.FC = () => {
 
   return (
     <>
-      <Box sx={{ display: { xs: 'none', md: 'block' } }}>{mappedNavItems}</Box>
-      <IconButton color="inherit" sx={{ display: { xs: 'block', md: 'none' } }} onClick={onOpenNavHandler}>
+      <Box gap={2} sx={{ display: { xs: 'none', md: 'flex' } }}>{mappedNavItems}</Box>
+      <IconButton color="inherit" sx={{ display: { xs: 'flex', md: 'none' } }} onClick={onOpenNavHandler}>
         <MenuIcon />
       </IconButton>
-      <Dialog open={openMenu} fullScreen fullWidth>
+      <Dialog open={openMenu} fullScreen fullWidth TransitionComponent={Transition} hideBackdrop PaperProps={{
+            sx: {
+              boxShadow: 'none',
+            },
+          }}>
         <AppBar position="static" sx={{ background: '#fe8301', color: 'white' }}>
           <Toolbar>
             <Typography variant="h5" sx={{ flexGrow: 1 }}>
