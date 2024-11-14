@@ -1,18 +1,66 @@
-import { Box, Typography } from '@mui/material';
+import {
+  Box,
+  Button,
+  createTheme,
+  responsiveFontSizes,
+  ThemeProvider,
+  Typography,
+} from "@mui/material";
 
-export const IntroSection: React.FC = () => {
+import "./intro.section.css";
+import { SectionIdEnum } from "types";
+import { roseImg } from "assets";
+import { KeyboardDoubleArrowDown } from "@mui/icons-material";
+
+export type IntroSectionnProps = {
+  isScreenSmall: boolean;
+};
+
+export const IntroSection: React.FC<IntroSectionnProps> = ({
+  isScreenSmall,
+}) => {
+  const theme = createTheme();
+  const responsiveText = responsiveFontSizes(theme);
+
   return (
-    <Box>
-      <Typography variant="h6">hello, my name is</Typography>
-      <Typography variant="h2" mb={1} fontWeight={500}>
-        CodeFocus
-      </Typography>
-      <Typography variant="h5" mb={3}>
-        I make youtube tutorials
-      </Typography>
-      <Typography maxWidth={500}>
-        Thank you for watching - please leave a like on the video and subscribe for more coding content!
-      </Typography>
+    <Box className="introBody">
+      <div className="bg"></div>
+      <div className="bg bg2"></div>
+      <div className="bg bg3"></div>
+
+      <Box width={isScreenSmall ? "400px" : "600px"} className="content">
+        <img
+          height={isScreenSmall ? "150px" : "200px"}
+          src={roseImg}
+          alt="rose"
+          className="rose"
+        />
+        <Box>
+          <ThemeProvider theme={responsiveText}>
+            <Typography className="textHere" variant="h4">
+              Hello, my name is
+            </Typography>
+            <Typography className="name" variant="h3" mb={1} fontWeight={500}>
+              Kristen
+            </Typography>
+            <Typography className="name" variant="h3" mb={1} fontWeight={500}>
+              De La Rosa
+            </Typography>
+            <Typography className="textHere" variant="h5" mb={3}>
+              I am a full stack developer.
+            </Typography>
+          </ThemeProvider>
+        </Box>
+        <Button
+          className="raise"
+          color="success"
+          href={`#${SectionIdEnum.about}`}
+          size="small"
+          endIcon={<KeyboardDoubleArrowDown />}
+        >
+          View my work
+        </Button>
+      </Box>
     </Box>
   );
 };
