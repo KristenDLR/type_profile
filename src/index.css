@@ -1,9 +1,9 @@
 * {
-    margin: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-  }
-  
-  .allUnset {
-    all: unset;
-  }
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+.allUnset {
+  all: unset;
+}
