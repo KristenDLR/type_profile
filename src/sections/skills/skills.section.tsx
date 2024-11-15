@@ -58,13 +58,14 @@ export const SkillsSection: React.FC<SkillsSectiontProps> = ({
   };
 
   const handleClose = (
-    event: React.SyntheticEvent | Event,
+    _event: React.SyntheticEvent | Event,
     reason?: SnackbarCloseReason
   ) => {
+    console.log(reason);
     if (reason === "clickaway") {
+      setOpen(false);
       return;
     }
-
     setOpen(false);
   };
 
@@ -96,7 +97,11 @@ export const SkillsSection: React.FC<SkillsSectiontProps> = ({
               <Typography variant="h5">Download Resume </Typography>
             </Button>
             {status === "success" && (
-              <Snackbar open={open} autoHideDuration={3000}>
+              <Snackbar
+                open={open}
+                autoHideDuration={3000}
+                onClose={handleClose}
+              >
                 <Alert
                   onClose={handleClose}
                   severity="success"
