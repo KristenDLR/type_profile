@@ -1,0 +1,21 @@
+.brick-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 20px; /* Gap between columns */
+  height: fit-content;
+}
+
+.column {
+  display: grid;
+  grid-auto-rows: minmax(100px, auto); /* Set row height */
+  gap: 15px; /* Gap between rows */
+}
+
+.brick {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 8px; /* Optional */
+}
