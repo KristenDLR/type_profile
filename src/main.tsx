@@ -2,6 +2,7 @@ import { Divider, useMediaQuery, useTheme } from "@mui/material";
 import { MainLayout, SectionContainer } from "components";
 import { IntroSection } from "sections";
 import { AboutSection } from "sections/about/about.section";
+import { ContactSection } from "sections/contact/contact.section";
 import { SkillsSection } from "sections/skills/skills.section";
 import { SectionIdEnum } from "types";
 
@@ -28,7 +29,7 @@ export const Maine: React.FC = () => {
     },
     {
       sectionId: SectionIdEnum.contact,
-      component: <AboutSection isScreenSmall={isScreenSmall} />,
+      component: <ContactSection />,
     },
   ];
 
