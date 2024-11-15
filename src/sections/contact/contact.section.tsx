@@ -34,10 +34,9 @@ export const ContactSection: React.FC = () => {
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
   const [error, setError] = useState(null);
 
-  //TODO: update with .env
-  let SERVICE_ID = "service_4fy0ly9";
-  let TEMPLATE_ID = "template_d3h5g6b";
-  let USER_ID = "user_gRy2qZIBMpabtOeWDIjQ5";
+  let SERVICE_ID =process.env.REACT_APP_SERVICE_ID;
+  let TEMPLATE_ID = process.env.REACT_APP_TEMPLATE_ID;
+  let USER_ID = process.env.REACT_APP_USER_ID;
 
   const handleSubmit = () => {
     setIsSubmitted(true);
@@ -175,7 +174,7 @@ export const ContactSection: React.FC = () => {
             required
             fullWidth
             id="from_email"
-            label="from_email"
+            label="Email"
             size="small"
             sx={{ mb: "30px" }}
             {...formik.getFieldProps("from_email")}
