@@ -7,3 +7,4 @@ export const logoImg = logo;
 export const roseImg = rose;
 
 export const greenMeImg = greenMe;
+export * from "./icons";

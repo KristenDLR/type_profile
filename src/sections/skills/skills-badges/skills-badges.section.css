@@ -12,7 +12,6 @@
 }
 
 .brick {
-  background-color: #8e44ad; /* Example color */
   color: white;
   display: flex;
   align-items: center;
