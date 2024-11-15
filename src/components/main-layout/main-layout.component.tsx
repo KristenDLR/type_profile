@@ -2,7 +2,6 @@ import { AppBar, Box, Toolbar, Typography } from "@mui/material";
 import { logoImg } from "assets";
 import React from "react";
 import AnchorLink from "react-anchor-link-smooth-scroll";
-// import { Navigation } from "./navigation/navigation.component";
 import { SectionIdEnum } from "types";
 import { Navigation } from "./navigation/navigation.component";
 
@@ -15,6 +14,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
   children,
   isScreenSmall,
 }) => {
+
   return (
     <Box height="100vh">
       <AppBar
@@ -31,7 +31,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
               <Box display="flex" alignItems="center" gap={0.5}>
                 <img width="54px" height="54px" src={logoImg} alt="logo" />
                 <Typography variant="h5" sx={{ width: "fit-content" }}>
-                  De La Rosa Rocks
+                  Kristen De La Rosa Portfolio
                 </Typography>
               </Box>
             </AnchorLink>

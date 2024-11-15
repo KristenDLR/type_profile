@@ -14,15 +14,13 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "baseUrl": "src/",
     "outDir": "./build",
     "noImplicitAny": true,
     "noImplicitThis": true,
     "strictNullChecks": true,
+    "baseUrl": "src/",
     "paths": {
-      "@main-layout/*": ["./components/main-layout/*"]
-      // "@utils/*": ["src/utils/*"]
-      // Add more paths as needed
+      "@components/*": ["./components/*"]
     }
   },
   "include": ["**/*.ts", "**/*.tsx"],

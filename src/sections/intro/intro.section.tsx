@@ -23,7 +23,7 @@ export const IntroSection: React.FC<IntroSectionnProps> = ({
   const responsiveText = responsiveFontSizes(theme);
 
   return (
-    <Box className="introBody">
+    <Box>
       <div className="bg"></div>
       <div className="bg bg2"></div>
       <div className="bg bg3"></div>
@@ -37,28 +37,37 @@ export const IntroSection: React.FC<IntroSectionnProps> = ({
         />
         <Box>
           <ThemeProvider theme={responsiveText}>
-            <Typography className="textHere" variant="h4">
+            <Typography className="introText" variant="h4">
               Hello, my name is
             </Typography>
-            <Typography className="name" variant="h3" mb={1} fontWeight={500}>
+            <Typography
+              className="name"
+              variant="h3"
+              mb={1}
+              fontWeight={500}
+            >
               Kristen
             </Typography>
             <Typography className="name" variant="h3" mb={1} fontWeight={500}>
               De La Rosa
             </Typography>
-            <Typography className="textHere" variant="h5" mb={3}>
+            <Typography className="introText" variant="h5" mb={3}>
               I am a full stack developer.
             </Typography>
           </ThemeProvider>
         </Box>
         <Button
-          className="raise"
+          variant="contained"
+          sx={{
+            textTransform: "none",
+            color: "white",
+          }}
           color="success"
           href={`#${SectionIdEnum.about}`}
           size="small"
           endIcon={<KeyboardDoubleArrowDown />}
         >
-          View my work
+          View My Work
         </Button>
       </Box>
     </Box>
