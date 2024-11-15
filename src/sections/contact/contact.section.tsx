@@ -17,7 +17,6 @@ import { send } from "emailjs-com";
 const phoneRegExp =
   /^\([0-9]{3}\)[ \\-]*([0-9]{2,4}[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
-//formik resetForm documentation requires passing actions
 const validationSchema = Yup.object({
   from_name: Yup.string().required("Full Name is required"),
   from_phone: Yup.string().matches(
@@ -33,7 +32,7 @@ const validationSchema = Yup.object({
 export const ContactSection: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
-  
+  const [error, setError] = useState(null);
 
   //TODO: update with .env
   let SERVICE_ID = "service_4fy0ly9";
@@ -54,6 +53,8 @@ export const ContactSection: React.FC = () => {
       return;
     }
     setIsSubmitted(false);
+    setError(null);
+    console.log({ close: isSubmitted, isLoading, error });
   };
 
   const formik = useFormik({
@@ -65,6 +66,7 @@ export const ContactSection: React.FC = () => {
     },
     validationSchema: validationSchema,
     onSubmit: (value, actions) => {
+      console.log({ submitted: isSubmitted, isLoading, error });
       setIsLoading(true);
       const template = {
         from_name: value.from_name,
@@ -78,45 +80,70 @@ export const ContactSection: React.FC = () => {
             handleSubmit();
             actions.resetForm();
             setIsLoading(false);
-            // return(
-            //     <Snackbar open={res.status === 200} autoHideDuration={3000}>
-            //     <Alert severity="success" variant="filled" sx={{ width: "100%" }}>
-            //       Message Sent Succesfully!
-            //     </Alert>
-            //   </Snackbar>
-            // )
           }
         })
         .catch((error) => {
           console.log("Error sending email", error);
-          alert("failed to send messgae");
-            // return (
-            //   <Snackbar open={error && !isSubmitted} autoHideDuration={3000}>
-            //     <Alert severity="error" variant="filled" sx={{ width: "100%" }}>
-            //       Failed to send message!
-            //     </Alert>
-            //   </Snackbar>
-            // );
+          setError(error.message);
         });
       setIsLoading(false);
     },
   });
 
   return (
-    <Container>
-      <Snackbar open={isSubmitted} autoHideDuration={3000} onClose={handleClose}>
-        <Alert
+    <Container className="section">
+      {isSubmitted && (
+        <Snackbar
+          open={isSubmitted}
+          autoHideDuration={3000}
           onClose={handleClose}
-          severity="success"
-          variant="filled"
-          sx={{ width: "100%" }}
+          anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
         >
-          Message Sent Succesfully!
+          <Alert
+            onClose={handleClose}
+            severity="success"
+            variant="filled"
+            sx={{ width: "100%" }}
+          >
+            Message Sent Succesfully!
+          </Alert>
+        </Snackbar>
+      )}
+      {!isSubmitted && !!error}
+      <Snackbar
+        open={!!error && !isSubmitted}
+        autoHideDuration={3000}
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+      >
+        <Alert severity="error" variant="filled" sx={{ width: "100%" }}>
+          Failed to send message!
         </Alert>
       </Snackbar>
-      <Typography>Contact Me</Typography>
-      <form onSubmit={formik.handleSubmit} noValidate>
-        <Box sx={{ mt: "20px", mb: "40px" }}>
+      <Typography sx={{ mx: "auto" }} className="sectionTitle" variant="h1">
+        Contact
+      </Typography>
+      <form
+        onSubmit={formik.handleSubmit}
+        noValidate
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Box
+          className="formContainer"
+          sx={{
+            display: "flex",
+            flexDirection: "column", // Ensures form fields are stacked
+            padding: "20px",
+            borderRadius: "8px",
+            boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)",
+            width: "50%",
+            mt: "20px",
+            mb: "40px",
+          }}
+        >
           <TextField
             variant="filled"
             required

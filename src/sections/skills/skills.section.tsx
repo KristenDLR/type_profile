@@ -54,14 +54,12 @@ export const SkillsSection: React.FC<SkillsSectiontProps> = ({
       setStatus("error");
     }
     setIsDownloaded(true);
-    console.log(status);
   };
 
   const handleClose = (
     _event: React.SyntheticEvent | Event,
     reason?: SnackbarCloseReason
   ) => {
-    console.log(reason);
     if (reason === "clickaway") {
       setIsDownloaded(false);
       return;
@@ -103,6 +101,7 @@ export const SkillsSection: React.FC<SkillsSectiontProps> = ({
                   open={isDownloaded}
                   autoHideDuration={3000}
                   onClose={handleClose}
+                  anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
                 >
                   <Alert
                     onClose={handleClose}
@@ -115,7 +114,11 @@ export const SkillsSection: React.FC<SkillsSectiontProps> = ({
                 </Snackbar>
               )}
               {status === "error" && (
-                <Snackbar open={isDownloaded} autoHideDuration={3000}>
+                <Snackbar
+                  open={isDownloaded}
+                  autoHideDuration={3000}
+                  anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+                >
                   <Alert
                     onClose={handleClose}
                     severity="error"
