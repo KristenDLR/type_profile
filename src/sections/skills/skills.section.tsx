@@ -22,7 +22,7 @@ export type SkillsSectiontProps = {
 export const SkillsSection: React.FC<SkillsSectiontProps> = ({
   isScreenSmall,
 }) => {
-  const [open, setOpen] = React.useState(false);
+  const [isDownloaded, setIsDownloaded] = React.useState(false);
   const [status, setStatus] = useState<
     "idle" | "loading" | "success" | "error"
   >("idle");
@@ -53,7 +53,7 @@ export const SkillsSection: React.FC<SkillsSectiontProps> = ({
       console.error("Error downloading file:", error);
       setStatus("error");
     }
-    setOpen(true);
+    setIsDownloaded(true);
     console.log(status);
   };
 
@@ -63,10 +63,10 @@ export const SkillsSection: React.FC<SkillsSectiontProps> = ({
   ) => {
     console.log(reason);
     if (reason === "clickaway") {
-      setOpen(false);
+      setIsDownloaded(false);
       return;
     }
-    setOpen(false);
+    setIsDownloaded(false);
   };
 
   return (
@@ -100,7 +100,7 @@ export const SkillsSection: React.FC<SkillsSectiontProps> = ({
               </Button>
               {status === "success" && (
                 <Snackbar
-                  open={open}
+                  open={isDownloaded}
                   autoHideDuration={3000}
                   onClose={handleClose}
                 >
@@ -115,7 +115,7 @@ export const SkillsSection: React.FC<SkillsSectiontProps> = ({
                 </Snackbar>
               )}
               {status === "error" && (
-                <Snackbar open={open} autoHideDuration={3000}>
+                <Snackbar open={isDownloaded} autoHideDuration={3000}>
                   <Alert
                     onClose={handleClose}
                     severity="error"
