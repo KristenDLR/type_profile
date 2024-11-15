@@ -40,12 +40,7 @@ export const IntroSection: React.FC<IntroSectionnProps> = ({
             <Typography className="introText" variant="h4">
               Hello, my name is
             </Typography>
-            <Typography
-              className="name"
-              variant="h3"
-              mb={1}
-              fontWeight={500}
-            >
+            <Typography className="name" variant="h3" mb={1} fontWeight={500}>
               Kristen
             </Typography>
             <Typography className="name" variant="h3" mb={1} fontWeight={500}>

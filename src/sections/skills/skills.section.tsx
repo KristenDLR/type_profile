@@ -2,8 +2,8 @@ import { Box, Stack, Typography } from "@mui/material";
 import "./skills.section.css";
 import resumePDF from "../skills/DeLaRosa-Resume_24.pdf";
 import DownloadForOfflineRoundedIcon from "@mui/icons-material/DownloadForOfflineRounded";
-import ConnectWithoutContactRoundedIcon from "@mui/icons-material/ConnectWithoutContactRounded";
-import NewReleasesRoundedIcon from "@mui/icons-material/NewReleasesRounded";
+import { experienceArray } from "../../constants/experience";
+import { CurrentExperience } from "./current-experience/current-experience.section";
 
 export type SkillsSectiontProps = {
   isScreenSmall: boolean;
@@ -39,30 +39,7 @@ export const SkillsSection: React.FC<SkillsSectiontProps> = ({
           <Box className="experience">
             <Typography variant="h3">Most recent experience</Typography>
             <Typography variant="h5">Highlight- Software Engineer I</Typography>
-            <ul>
-              <ConnectWithoutContactRoundedIcon
-                sx={{ width: "20px", paddingRight: "5px" }}
-              />
-              Led the development of key product features from concept to
-              release, facilitating regular communication with product managers
-              and stakeholders
-            </ul>
-            <ul>
-              <NewReleasesRoundedIcon
-                sx={{ width: "20px", paddingRight: "5px" }}
-              />
-              Coordinated with cross-functional teams, monitored and tracked
-              feature performance post-release, to gather feedback from users
-              and stakeholders to inform future improvements and iterations.
-            </ul>
-            <ul>
-              <NewReleasesRoundedIcon
-                sx={{ width: "20px", paddingRight: "5px" }}
-              />
-              Translated product requirements into actionable tasks for the
-              development team, providing clear guidance and technical support
-              throughout the development lifecycle.
-            </ul>
+            <CurrentExperience items={experienceArray} />
           </Box>
         </Stack>
       </Box>

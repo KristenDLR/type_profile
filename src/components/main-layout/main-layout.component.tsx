@@ -14,7 +14,6 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
   children,
   isScreenSmall,
 }) => {
-
   return (
     <Box height="100vh">
       <AppBar
