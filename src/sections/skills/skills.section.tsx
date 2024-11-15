@@ -70,7 +70,7 @@ export const SkillsSection: React.FC<SkillsSectiontProps> = ({
   };
 
   return (
-    <Box className="SkillsSection">
+    <Box className="section">
       <Typography sx={{ mx: "auto" }} className="sectionTitle" variant="h1">
         Skills
       </Typography>
@@ -83,55 +83,64 @@ export const SkillsSection: React.FC<SkillsSectiontProps> = ({
           gridTemplateColumns: isScreenSmall ? "1fr" : "repeat(2, 1fr)",
         }}
       >
-        <SkillsBadges />
-        <Stack>
-          <Box>
-            <Button
-              onClick={handleClick}
-              variant="contained"
-              style={{ textAlign: "center", color: "black" }}
-              href={resumePDF}
-              download
-            >
-              <DownloadForOfflineRoundedIcon />
-              <Typography variant="h5">Download Resume </Typography>
-            </Button>
-            {status === "success" && (
-              <Snackbar
-                open={open}
-                autoHideDuration={3000}
-                onClose={handleClose}
+        <Stack className="badgesSection">
+          <Box className="badgeContent">
+            <SkillsBadges />
+            <Box>
+              <Button
+                onClick={handleClick}
+                variant="contained"
+                style={{ textAlign: "center", color: "black" }}
+                href={resumePDF}
+                download
+                color="secondary"
               >
-                <Alert
+                <DownloadForOfflineRoundedIcon />
+                <Typography variant="h5">Download Resume </Typography>
+              </Button>
+              {status === "success" && (
+                <Snackbar
+                  open={open}
+                  autoHideDuration={3000}
                   onClose={handleClose}
-                  severity="success"
-                  variant="filled"
-                  sx={{ width: "100%" }}
                 >
-                  Download completed successfully!
-                </Alert>
-              </Snackbar>
-            )}
-            {status === "error" && (
-              <Snackbar open={open} autoHideDuration={3000}>
-                <Alert
-                  onClose={handleClose}
-                  severity="error"
-                  variant="filled"
-                  sx={{ width: "100%" }}
-                >
-                  Failed to download the file. Please try again.
-                </Alert>
-              </Snackbar>
-            )}
-          </Box>
-
-          <Box className="experience">
-            <Typography variant="h3">Most recent experience</Typography>
-            <Typography variant="h5">Highlight- Software Engineer I</Typography>
-            <CurrentExperience items={experienceArray} />
+                  <Alert
+                    onClose={handleClose}
+                    severity="success"
+                    variant="filled"
+                    sx={{ width: "100%" }}
+                  >
+                    Download completed successfully!
+                  </Alert>
+                </Snackbar>
+              )}
+              {status === "error" && (
+                <Snackbar open={open} autoHideDuration={3000}>
+                  <Alert
+                    onClose={handleClose}
+                    severity="error"
+                    variant="filled"
+                    sx={{ width: "100%" }}
+                  >
+                    Failed to download the file. Please try again.
+                  </Alert>
+                </Snackbar>
+              )}
+            </Box>
           </Box>
         </Stack>
+
+        <Box className="experience">
+          <Stack sx={{ padding: "20px" }}>
+            <Typography className="heading" variant="h4">
+              Most recent experience
+            </Typography>
+            <Typography className="subText" variant="h5">
+              Highlight- Software Engineer I
+            </Typography>
+            <CurrentExperience items={experienceArray} />
+          </Stack>
+        </Box>
       </Box>
     </Box>
   );

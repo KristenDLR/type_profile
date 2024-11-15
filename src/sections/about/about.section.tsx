@@ -10,7 +10,7 @@ export const AboutSection: React.FC<AboutSectiontProps> = ({
   isScreenSmall,
 }) => {
   return (
-    <Box className="aboutSection">
+    <Box className="section">
       <Typography sx={{ mx: "auto" }} className="sectionTitle" variant="h1">
         About
       </Typography>
@@ -24,12 +24,11 @@ export const AboutSection: React.FC<AboutSectiontProps> = ({
         }}
       >
         <img
-          // height={isScreenSmall ? "200px" : "400px"}
           src={greenMeImg}
           alt="Developer Photograph"
           className="greenMe"
         />
-        <Typography>
+        <Typography variant="h6"className="subText">
           I am an innovative and growth-oriented software engineer with a unique
           background in education, and I leverage my strong communication and
           problem-solving skills to build impactful technology. I have

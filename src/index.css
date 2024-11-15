@@ -7,3 +7,25 @@
 .allUnset {
   all: unset;
 }
+
+.sectionTitle {
+  --i: 40px;
+  width: fit-content;
+  box-shadow: 0 -40px #95c289 inset;
+  text-indent: calc(-1 * var(--i));
+  padding-right: var(--i);
+  margin-left: var(--i);
+  font-family: "Barriecito", system-ui !important;
+}
+
+.section {
+  position: sticky;
+  padding: 10px;
+  margin-top: 45px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.subText {
+  font-family: "Atma", serif !important;
+}
