@@ -4,6 +4,7 @@ import React from "react";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import { SectionIdEnum } from "types";
 import { Navigation } from "./navigation/navigation.component";
+import "./main-layout.component.css";
 
 export type MainLayoutProps = {
   children: React.ReactNode;
@@ -18,7 +19,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
     <Box height="100vh">
       <AppBar
         position="fixed"
-        sx={{ maxWidth: "fot-content", background: "#fe8301" }}
+        sx={{ fontFamily: '"Atma", serif !important', background: "#fe8301" }}
       >
         <Toolbar>
           <Box flexGrow={1}>
@@ -29,7 +30,11 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
             >
               <Box display="flex" alignItems="center" gap={0.5}>
                 <img width="54px" height="54px" src={logoImg} alt="logo" />
-                <Typography variant="h5" sx={{ width: "fit-content" }}>
+                <Typography
+                  className="topNav"
+                  variant="h5"
+                  sx={{ width: "fit-content" }}
+                >
                   Kristen De La Rosa Portfolio
                 </Typography>
               </Box>

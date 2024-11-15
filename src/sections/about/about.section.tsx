@@ -23,12 +23,8 @@ export const AboutSection: React.FC<AboutSectiontProps> = ({
           gridTemplateColumns: isScreenSmall ? "1fr" : "repeat(2, 1fr)",
         }}
       >
-        <img
-          src={greenMeImg}
-          alt="Developer Photograph"
-          className="greenMe"
-        />
-        <Typography variant="h6"className="subText">
+        <img src={greenMeImg} alt="Developer Photograph" className="greenMe" />
+        <Typography variant="h6" className="subText">
           I am an innovative and growth-oriented software engineer with a unique
           background in education, and I leverage my strong communication and
           problem-solving skills to build impactful technology. I have
