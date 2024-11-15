@@ -14,7 +14,7 @@ export const CurrentExperience: React.FC<CurrentExperienceProps> = ({
         {items.map((item, index) => (
           <ListItem key={index}>
             <ListItemIcon>{item.icon}</ListItemIcon>
-            <ListItemText className='subText' primary={item.text} />
+            <ListItemText className="subText" primary={item.text} />
           </ListItem>
         ))}
       </List>

@@ -14,6 +14,7 @@ import AnchorLink from "react-anchor-link-smooth-scroll";
 import { SectionIdEnum } from "types";
 import { Close } from "@mui/icons-material";
 import { TransitionProps } from "@mui/material/transitions";
+import "../main-layout.component.css";
 
 export type NavigationProps = {
   isScreenSmall: boolean;
@@ -64,6 +65,7 @@ export const Navigation: React.FC<NavigationProps> = ({ isScreenSmall }) => {
         className="allUnset"
       >
         <Button
+          className="topNav"
           color="inherit"
           size="large"
           fullWidth={isScreenSmall}
@@ -104,7 +106,7 @@ export const Navigation: React.FC<NavigationProps> = ({ isScreenSmall }) => {
           sx={{ background: "#fe8301", color: "white" }}
         >
           <Toolbar>
-            <Typography variant="h5" sx={{ flexGrow: 1 }}>
+            <Typography className="topNav" variant="h5" sx={{ flexGrow: 1 }}>
               Menu
             </Typography>
             <IconButton color="inherit" onClick={onCloseNavHandler}>
@@ -118,8 +120,9 @@ export const Navigation: React.FC<NavigationProps> = ({ isScreenSmall }) => {
           py={3}
           width="100%"
           alignItems="center"
+          sx={{}}
         >
-          {mappedNavItems}
+          <Typography className="topNav">{mappedNavItems}</Typography>
         </Box>
       </Dialog>
     </>
