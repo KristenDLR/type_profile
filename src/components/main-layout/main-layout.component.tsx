@@ -5,6 +5,7 @@ import AnchorLink from "react-anchor-link-smooth-scroll";
 import { SectionIdEnum } from "types";
 import { Navigation } from "./navigation/navigation.component";
 import "./main-layout.component.css";
+import { Footer } from "./footer/footer.component";
 
 export type MainLayoutProps = {
   children: React.ReactNode;
@@ -45,6 +46,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
       </AppBar>
       <Toolbar />
       <Box>{children}</Box>
+      <Footer />
     </Box>
   );
 };
