@@ -1,8 +1,9 @@
-import { Divider, useMediaQuery, useTheme } from "@mui/material";
+import { useMediaQuery, useTheme } from "@mui/material";
 import { MainLayout, SectionContainer } from "components";
 import { IntroSection } from "sections";
 import { AboutSection } from "sections/about/about.section";
 import { ContactSection } from "sections/contact/contact.section";
+import { ProjectsSection } from "sections/projects/project.section";
 import { SkillsSection } from "sections/skills/skills.section";
 import { SectionIdEnum } from "types";
 
@@ -25,7 +26,7 @@ export const Maine: React.FC = () => {
     },
     {
       sectionId: SectionIdEnum.projects,
-      component: <AboutSection isScreenSmall={isScreenSmall} />,
+      component: <ProjectsSection />,
     },
     {
       sectionId: SectionIdEnum.contact,
@@ -38,7 +39,6 @@ export const Maine: React.FC = () => {
       {sections.map(({ component, sectionId }) => {
         return (
           <SectionContainer key={sectionId} sectionId={sectionId}>
-            <Divider />
             {component}
           </SectionContainer>
         );
