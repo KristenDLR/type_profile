@@ -81,6 +81,17 @@ export const SkillsSection: React.FC<SkillsSectiontProps> = ({
           gridTemplateColumns: isScreenSmall ? "1fr" : "repeat(2, 1fr)",
         }}
       >
+        <Box className="experience">
+          <Stack sx={{ padding: "20px" }}>
+            <Typography className="heading" variant="h4">
+              Most recent experience
+            </Typography>
+            <Typography className="subText" variant="h5">
+              Highlight- Software Engineer I
+            </Typography>
+            <CurrentExperience items={experienceArray} />
+          </Stack>
+        </Box>
         <Stack className="badgesSection">
           <Box className="badgeContent">
             <SkillsBadges />
@@ -132,18 +143,6 @@ export const SkillsSection: React.FC<SkillsSectiontProps> = ({
             </Box>
           </Box>
         </Stack>
-
-        <Box className="experience">
-          <Stack sx={{ padding: "20px" }}>
-            <Typography className="heading" variant="h4">
-              Most recent experience
-            </Typography>
-            <Typography className="subText" variant="h5">
-              Highlight- Software Engineer I
-            </Typography>
-            <CurrentExperience items={experienceArray} />
-          </Stack>
-        </Box>
       </Box>
     </Box>
   );

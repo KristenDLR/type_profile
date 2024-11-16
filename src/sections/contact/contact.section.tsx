@@ -34,7 +34,7 @@ export const ContactSection: React.FC = () => {
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
   const [error, setError] = useState(null);
 
-  let SERVICE_ID =process.env.REACT_APP_SERVICE_ID;
+  let SERVICE_ID = process.env.REACT_APP_SERVICE_ID;
   let TEMPLATE_ID = process.env.REACT_APP_TEMPLATE_ID;
   let USER_ID = process.env.REACT_APP_USER_ID;
 
@@ -134,7 +134,7 @@ export const ContactSection: React.FC = () => {
           className="formContainer"
           sx={{
             display: "flex",
-            flexDirection: "column", // Ensures form fields are stacked
+            flexDirection: "column",
             padding: "20px",
             borderRadius: "8px",
             boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)",
