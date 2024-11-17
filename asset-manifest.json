@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/type_profile/static/css/main.40b84042.css",
+    "main.js": "/type_profile/static/js/main.fd08ca34.js",
+    "static/media/greenMe.png": "/type_profile/static/media/greenMe.9f2d6bd82946e72571dc.png",
+    "static/media/DeLaRosa-Resume_24.pdf": "/type_profile/static/media/DeLaRosa-Resume_24.4944774b9ede689f140a.pdf",
+    "static/media/logo.png": "/type_profile/static/media/logo.e8d0a19919781a229338.png",
+    "static/media/rose.png": "/type_profile/static/media/rose.abf2521ac05db1de123e.png",
+    "index.html": "/type_profile/index.html",
+    "main.40b84042.css.map": "/type_profile/static/css/main.40b84042.css.map",
+    "main.fd08ca34.js.map": "/type_profile/static/js/main.fd08ca34.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.40b84042.css",
+    "static/js/main.fd08ca34.js"
+  ]
+}
