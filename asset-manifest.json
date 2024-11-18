@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/type_profile/static/css/main.8e7e7628.css",
-    "main.js": "/type_profile/static/js/main.c4ee47aa.js",
+    "main.css": "/type_profile/static/css/main.40b84042.css",
+    "main.js": "/type_profile/static/js/main.5b58e41e.js",
     "static/media/greenMe.png": "/type_profile/static/media/greenMe.9f2d6bd82946e72571dc.png",
     "static/media/DeLaRosa-Resume_24.pdf": "/type_profile/static/media/DeLaRosa-Resume_24.de8a377ec0ae81ea369c.pdf",
     "static/media/logo.png": "/type_profile/static/media/logo.e8d0a19919781a229338.png",
     "static/media/rose.png": "/type_profile/static/media/rose.abf2521ac05db1de123e.png",
     "index.html": "/type_profile/index.html",
-    "main.8e7e7628.css.map": "/type_profile/static/css/main.8e7e7628.css.map",
-    "main.c4ee47aa.js.map": "/type_profile/static/js/main.c4ee47aa.js.map"
+    "main.40b84042.css.map": "/type_profile/static/css/main.40b84042.css.map",
+    "main.5b58e41e.js.map": "/type_profile/static/js/main.5b58e41e.js.map"
   },
   "entrypoints": [
-    "static/css/main.8e7e7628.css",
-    "static/js/main.c4ee47aa.js"
+    "static/css/main.40b84042.css",
+    "static/js/main.5b58e41e.js"
   ]
 }
