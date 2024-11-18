@@ -23,11 +23,9 @@ const SkillsBadges: React.FC = () => {
           <img src={gitBadge} alt="Git badge" />
         </Box>
         <Box className="brick">
-          {" "}
           <img src={cSharpBadge} alt="C# badge" />
         </Box>
         <Box className="brick">
-          {" "}
           <img src={cssBadge} alt="Css badge" />
         </Box>
       </Box>

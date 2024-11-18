@@ -82,9 +82,7 @@ export const SkillsSection: React.FC<SkillsSectiontProps> = ({
         }}
       >
         <Box className="experience">
-          <Stack
-            sx={{ padding: "20px", width: isScreenSmall ? "455px" : "100%" }}
-          >
+          <Stack sx={{ padding: "20px" }}>
             <Typography className="heading" variant="h4">
               Most recent experience
             </Typography>

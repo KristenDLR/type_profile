@@ -134,7 +134,6 @@ export const ContactSection: React.FC<ContactSectiontProps> = ({
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          // maxWidth: (isScreenSmall ? '455px' : '100%')
         }}
       >
         <Box
