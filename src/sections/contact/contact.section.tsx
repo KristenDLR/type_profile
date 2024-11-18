@@ -29,7 +29,13 @@ const validationSchema = Yup.object({
   message: Yup.string().required("Message is required"),
 });
 
-export const ContactSection: React.FC = () => {
+export type ContactSectiontProps = {
+  isScreenSmall: boolean;
+};
+
+export const ContactSection: React.FC<ContactSectiontProps> = ({
+  isScreenSmall,
+}) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
   const [error, setError] = useState(null);
@@ -128,6 +134,7 @@ export const ContactSection: React.FC = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          // maxWidth: (isScreenSmall ? '455px' : '100%')
         }}
       >
         <Box
@@ -138,7 +145,7 @@ export const ContactSection: React.FC = () => {
             padding: "20px",
             borderRadius: "8px",
             boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)",
-            width: "50%",
+            width: isScreenSmall ? "455px" : "50%",
             mt: "20px",
             mb: "40px",
           }}

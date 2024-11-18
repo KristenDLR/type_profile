@@ -30,7 +30,7 @@ export const Maine: React.FC = () => {
     },
     {
       sectionId: SectionIdEnum.contact,
-      component: <ContactSection />,
+      component: <ContactSection isScreenSmall={isScreenSmall} />,
     },
   ];
 
