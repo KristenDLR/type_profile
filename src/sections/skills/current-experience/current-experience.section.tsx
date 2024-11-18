@@ -7,10 +7,11 @@ interface CurrentExperienceProps {
 }
 
 export const CurrentExperience: React.FC<CurrentExperienceProps> = ({
-  items, isScreenSmall
+  items,
+  isScreenSmall,
 }) => {
   return (
-    <Box maxWidth={isScreenSmall ? '455px' : '100%'}>
+    <Box maxWidth={isScreenSmall ? "455px" : "100%"}>
       <List>
         {items.map((item, index) => (
           <ListItem key={index}>

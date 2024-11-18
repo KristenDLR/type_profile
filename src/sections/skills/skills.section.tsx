@@ -89,7 +89,10 @@ export const SkillsSection: React.FC<SkillsSectiontProps> = ({
             <Typography className="subText" variant="h5">
               Highlight- Software Engineer I
             </Typography>
-            <CurrentExperience isScreenSmall={isScreenSmall} items={experienceArray} />
+            <CurrentExperience
+              isScreenSmall={isScreenSmall}
+              items={experienceArray}
+            />
           </Stack>
         </Box>
         <Stack className="badgesSection">
