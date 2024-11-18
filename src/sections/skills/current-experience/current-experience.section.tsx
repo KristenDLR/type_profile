@@ -11,11 +11,13 @@ export const CurrentExperience: React.FC<CurrentExperienceProps> = ({
   isScreenSmall,
 }) => {
   return (
-    <Box maxWidth={isScreenSmall ? "455px" : "100%"}>
+    <Box>
       <List>
         {items.map((item, index) => (
           <ListItem key={index}>
-            <ListItemIcon>{item.icon}</ListItemIcon>
+            <ListItemIcon sx={{ width: isScreenSmall ? "35px" : "100%" }}>
+              {item.icon}
+            </ListItemIcon>
             <ListItemText className="subText" primary={item.text} />
           </ListItem>
         ))}
