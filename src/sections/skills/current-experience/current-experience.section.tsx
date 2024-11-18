@@ -15,7 +15,9 @@ export const CurrentExperience: React.FC<CurrentExperienceProps> = ({
       <List>
         {items.map((item, index) => (
           <ListItem key={index}>
-            <ListItemIcon sx={{ width: isScreenSmall ? "35px" : "100%" }}>
+            <ListItemIcon
+              sx={{ width: isScreenSmall ? "35px" : "fit-content" }}
+            >
               {item.icon}
             </ListItemIcon>
             <ListItemText className="subText" primary={item.text} />
